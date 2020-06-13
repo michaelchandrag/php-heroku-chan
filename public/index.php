@@ -10,6 +10,7 @@ date_default_timezone_set("Asia/Jakarta");
 $dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../');
 $dotenv->load();
 
+// Slim Framework
 $container = new Container();
 AppFactory::setContainer($container);
 
@@ -22,9 +23,11 @@ $app->setBasePath($basePathDetector->getBasePath());
 // Set up database connection
 require_once __DIR__ . '/../app/config/database.php';
 
+// Set up routes
+require_once __DIR__ . '/../app/routes/config.php';
+
 // Set up dependencies
 require_once __DIR__ . '/../app/config/dependencies.php';
 
-require_once __DIR__ . '/../app/routes/config.php';
 
 $app->run();

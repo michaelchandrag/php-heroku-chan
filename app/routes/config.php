@@ -15,12 +15,12 @@ $app->add(function ($request, $handler) {
             ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, PATCH, OPTIONS');
 });
 
-
+// www.asd.com/api/mllkkllklk
 $app->map(['GET', 'POST', 'PUT', 'DELETE', 'PATCH'], '/api/{routes:.+}', function ($request, $response) {
     $data = [
     	"success" => false,
     	"error" => 404,
-    	"message" => "Not found."
+    	"message" => "Route not found."
     ];
     $payload = json_encode($data);
 	$response->getBody()->write($payload);
